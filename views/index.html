@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div ng-controller="heroController">
+    <form class="" action="index.html" method="post">
+      <input type="text" ng-model="alias" name="name" value="" placeholder="Alias">
+      <input type="text" ng-model="first_name" name="name" value="" placeholder="First name">
+      <input type="text" ng-model="last_name" name="name" value="" placeholder="Last name">
+      <input type="text" ng-model="city" name="name" value="" placeholder="City">
+      Select super power:<select class="" ng-model="power_name" name="" placeholder="Super power">
+        <option value="Invisibility">Invisibility</option>
+        <option value="Flight">Flight</option>
+        <option value="Super Speed">Super Speed</option>
+        <option value="Heat Vision">Heat Vision</option>
+        <option value="Super Strength">Super Strength</option>
+        <option value="Accelerated Healing">Accelerated Healing</option>
+        <option value="Power Blast">Power Blast</option>
+        <option value="Animal Affinity">Animal Affinity</option>
+      </select>
+      <button type="button" ng-click="addHero()" name="button">Submit</button>
+      <button type="button" ng-click="showHeroes()" name="button">Show heroes</button>
+<div ng-repeat="show in allHeroes">
+  <h2>Alias: {{show.alias}} <button type="button" name="button">Delete</button></h2>
+  <p>First name: {{show.first_name}}</p>
+  <p>Last name: {{show.last_name}}</p>
+  <p>City: {{show.city}}</p>
+  <p>Super power: {{show.power_name}}</p>
+</div>
+    </div>
+    </form>
+  </body>
+</html>
