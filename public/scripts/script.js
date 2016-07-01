@@ -3,6 +3,7 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
   $scope.addHero = function(){
+    console.log('in addHero');
     event.preventDefault();
     var objectToSend = {
       alias: $scope.alias,
@@ -25,12 +26,16 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
     $scope.showHeroes();
   };//end addHero
   $scope.showHeroes = function(){
+    console.log('in showHeroes');
     $http({
       method: 'GET',
       url: '/showHero'
     }).then(function(response){
+      console.log(response);
+      console.log(response.data);
       $scope.allHeroes = response.data;
       console.log($scope.allHeroes);
+      // console.log($scope.allHeroes);
       console.log($scope.allHeroes.length);
     });//end .then
   };//end ShowHeroes

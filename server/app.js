@@ -14,11 +14,13 @@ app.listen(4242, 'localhost', function(req, res){
   console.log('listening on 4242');
 });
 
-app.get('/', function(req, res){
-  res.sendFile(path.resolve('views/index.html'));
-});
+var index = require('../routes/index');
+var display = require('../routes/display');
 
 app.use(express.static('public'));
+
+app.use('/display', display);
+app.use('/*', index);
 
 app.post('/sendHero', function(req, res){
   console.log('in sendHero');
@@ -46,4 +48,6 @@ app.get('/showHero', function(req, res){
   .then(function(data){
     res.send(data);
   });
+  console.log('in showHero');
+
 });//end showHero
